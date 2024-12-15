@@ -1,0 +1,83 @@
+package logicaloperators.grader;
+
+//public class Grader {
+//
+//    int grade; //property, store the grade input
+//
+//    public Grader() {  //empty constructor (overloading)
+//        grade = 0; //when an instance of grader is instantiated with no grade, it has a grade value of 0
+//    }
+//
+//    public Grader(int grade) {  // CONSTRUCTOR of Grader class(overloaded), 1st point of engagement when class is instantiated
+//        this.grade = grade;
+//    }
+//
+//    public String showGrade(){ // METHOD showGrade should return a string based on the grade stored
+//
+//        String msg = "Your result is: "; //initialise strings to form the results
+//        String result;
+//
+//        if(grade <= 3)                       //if grade <= 3 return "Failed"
+//            result = "Failed\n";
+//        else if (grade > 3 && grade <= 5 )  //else if grade > 3 && grade is <= 5 return "Insufficient"
+//            result = "Insufficient\n";
+//        else if (grade > 5 && grade <= 8)  //else if grade > 5 && grade <= 8 return "Good"
+//            result = "Good\n";
+//        else if (grade == 9 || grade == 10 )  //else if grade == 9 || grade == 10 return "Excellent"
+//            result = "Excellent\n";
+//        else                                    //else return "Invalid Entry" (for all other scenario)
+//            result = "Invalid Entry\n";
+//
+//        return msg + result;
+//    }
+//    bmi calculator
+//    Create a Java program that tells whether your body to weight ratio is good or could be better.
+//   The java app should take in your weight and height from the console and calculate your body to weight ratio.
+//    weight in kg
+//    height in m
+//    bmi = weight / height(squared)
+//    We’ll round to the nearest tenth, so that gives us a final BMI of 23.7
+//     tip: Remember, when rounding to the nearest tenth, you look at the number’s value in the 100ths place (in this case, it was the number 9). If the number in the 100ths place is 5 or greater, you round the 10ths place number up one digit. So instead of rounding to 23.6, it became 23.7.
+//     BMI	Weight Status
+//      Below 18.5	Underweight
+//      18.5 – 24.9	Healthy Weight
+//      25.0 – 29.9	Overweight
+//      30.0 and Above	Obesity
+public class BmiCalc{
+    double weightInKg;
+    double heightInMeters;
+
+    public BmiCalc() {  //empty constructor (overloading)
+        double weightInKg = 0;
+        double heightInMeters = 0;
+    }
+
+    public BmiCalc(double weightInKg,double heightInMeters) {
+        this.weightInKg = weightInKg;
+        this.heightInMeters = heightInMeters;
+    }
+    //    bmi = weight / height(squared)
+    //    We’ll round to the nearest tenth, so that gives us a final BMI of 23.7
+    //     tip: Remember, when rounding to the nearest tenth, you look at the number’s value in the 100ths place (in this case, it was the number 9). If the number in the 100ths place is 5 or greater, you round the 10ths place number up one digit. So instead of rounding to 23.6, it became 23.7.
+
+    double bmi = weightInKg / Math.pow(heightInMeters, 2);
+
+    public String showBmiResult(){ //
+
+        String msg = "Your BMI result is: ";
+        String result;
+
+        if(bmi < 18.5)
+            result = "Underweight. Could be Better\n";
+        else if (bmi >= 18.5 && bmi <= 24.9 )
+            result = "Healthy Weight. That is good\n";
+        else if (bmi >= 25.0 && bmi <= 29.9)
+            result = "Overweight. Could be Better\n";
+        else if (bmi >= 30.0)
+            result = "Obesity. Could be Better\n";
+        else
+            result = "Invalid Entry\n";
+
+        return msg + result;
+    }
+}
